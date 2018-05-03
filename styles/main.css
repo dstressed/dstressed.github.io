@@ -1,0 +1,295 @@
+/* Fonts */
+
+@font-face {
+    font-family: "Overpass";
+    font-weight: 300;
+    font-style: normal;
+    src: url("../fonts/overpass_light.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "Overpass";
+    font-weight: 600;
+    font-style: normal;
+    src: url("../fonts/overpass_semibold.woff2") format('woff2');
+}
+
+/* Reset User Agent Styles */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Universal */
+
+::-webkit-input-placeholder {
+    font-style: italic;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+/* Menu */
+
+.game-menu, .game-over { /* + Over */
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.menu-window, .over-window, .score-window { /* + Over, Score */
+    width: 550px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background: #F5F5F5; /* Grey 100 */
+    border-radius: 15px;
+}
+
+.menu-window > * {
+    margin-bottom: 20px;
+}
+
+.menu-window > *:last-child {
+    margin-bottom: 0;
+}
+
+.menu-rules p {
+    text-align: left;
+}
+
+.menu-form input {
+    display: inline-block;
+    width: 175px;
+    padding: 10px 0 6px 10px;
+    background: #FAFAFA; /* Grey 50 */
+    border: 1.5px solid #E0E0E0; /* Grey 300 */
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+.menu-form input:focus {
+    border: 1.5px solid #FFD740; /* Amber A200 */
+    outline: none;
+}
+
+.menu-form label {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.menu-form > label:nth-child(2) {
+    margin-left: 0;
+}
+
+.menu-window span {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 150px;
+    padding: 22px 0 18px 0;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.menu-back span {
+    border: 5px solid #E0E0E0; /* Grey 300 */
+    border-radius: 10px;
+}
+
+.menu-back span:hover {
+    border: 5px solid #FFECB3; /* Amber 100 */
+}
+
+.menu-difficulty span {
+    background: #CFD8DC; /* Blue Grey 100 */
+}
+
+.menu-difficulty span:hover {
+    outline: 5px solid #FFECB3; /* Amber 100 */
+}
+
+.menu-button span {
+    width: 200px;
+    padding: 17px 0 13px 0;
+    background: #FFD740; /* Amber A200 */
+}
+
+.menu-button span:hover {
+    background: #FFC400; /* Amber A400 */
+}
+
+.menu-back .-selected, .menu-back .-selected:hover {
+    border: 5px solid #FFD740; /* Amber A200 */
+}
+
+.menu-difficulty .-selected, .menu-difficulty .-selected:hover {
+    outline: 5px solid #FFD740; /* Amber A400 */
+}
+
+/* Game */
+
+.game {
+    max-width: 1240px;
+    min-width: 640px;
+    margin: 0 auto;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 18" width="72" height="18"><defs><style>.cls-1{fill:#fafafa;}</style></defs><title>pattern_square</title><polygon class="cls-1" points="41.207 0 39.793 0 36 3.793 32.207 0 30.793 0 35.293 4.5 27 12.793 14.207 0 12.793 0 0 12.793 0 14.207 13.5 0.707 30.793 18 32.207 18 27.707 13.5 41.207 0"/><polygon class="cls-1" points="13.5 17.293 12.793 18 14.207 18 13.5 17.293"/><polygon class="cls-1" points="49.5 8.293 39.793 18 41.207 18 49.5 9.707 57.793 18 59.207 18 49.5 8.293"/><polygon class="cls-1" points="63.707 4.5 68.207 0 66.793 0 63 3.793 59.207 0 57.793 0 71.293 13.5 66.793 18 68.207 18 72 14.207 72 12.793 63.707 4.5"/></svg>') 5% 5%;
+    font-family: Overpass, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+    color: #616161; /* Grey 700 */
+}
+
+.game-score, .game-time {
+    width: 80px;
+    margin: 25px 35px;
+}
+
+.game-score {
+    float: left;
+    cursor: pointer;
+}
+
+.game-score:hover {
+    border-bottom: 1.5px solid #9E9E9E; /* Grey 500 */
+}
+
+.game-time {
+    float: right;
+}
+
+/* Board */
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-auto-rows: max-content;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    text-align: left;
+}
+
+.game-board > div {
+    visibility: visible;
+    opacity: 1;
+    width: 125px;
+    height: 171px;
+    margin: 20px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.back-background-01 .card-back, .menu-back-background-01 { /* + Menu */
+    background: #FFF url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 18" width="9" height="18"><defs><style>.cls-1{fill:#ef5350;}</style></defs><title>back_red</title><polygon class="cls-1" points="8.441 18 4.5 10.118 0.559 18 8.441 18"/><polygon class="cls-1" points="8.441 0 0.559 0 4.5 7.882 8.441 0"/><polygon class="cls-1" points="9 1.118 5.059 9 9 16.882 9 1.118"/><polygon class="cls-1" points="0 16.882 3.941 9 0 1.118 0 16.882"/></svg>') 0 0;
+}
+
+.back-background-02 .card-back, .menu-back-background-02 { /* + Menu */
+    background: #FFF url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 18" width="9" height="18"><defs><style>.cls-1{fill:#26a69a;}</style></defs><title>back_teal</title><polygon class="cls-1" points="8.441 18 4.5 10.118 0.559 18 8.441 18"/><polygon class="cls-1" points="8.441 0 0.559 0 4.5 7.882 8.441 0"/><polygon class="cls-1" points="9 1.118 5.059 9 9 16.882 9 1.118"/><polygon class="cls-1" points="0 16.882 3.941 9 0 1.118 0 16.882"/></svg>');
+}
+
+.back-background-03 .card-back, .menu-back-background-03 { /* + Menu */
+    background: #FFF url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 18" width="9" height="18"><defs><style>.cls-1{fill:#78909c;}</style></defs><title>back_blue_gray</title><polygon class="cls-1" points="8.441 18 4.5 10.118 0.559 18 8.441 18"/><polygon class="cls-1" points="8.441 0 0.559 0 4.5 7.882 8.441 0"/><polygon class="cls-1" points="9 1.118 5.059 9 9 16.882 9 1.118"/><polygon class="cls-1" points="0 16.882 3.941 9 0 1.118 0 16.882"/></svg>');
+}
+
+.front-background-01 .card-front {
+    background: url("../images/cards.jpg") 0 0 no-repeat;
+}
+
+.front-background-02 .card-front {
+    background: url("../images/cards.jpg") 50% 0 no-repeat;
+}
+
+.front-background-03 .card-front {
+    background: url("../images/cards.jpg") 100% 0 no-repeat;
+}
+
+.front-background-04 .card-front {
+    background: url("../images/cards.jpg") 0 50% no-repeat;
+}
+
+.front-background-05 .card-front {
+    background: url("../images/cards.jpg") 50% 50% no-repeat;
+}
+
+.front-background-06 .card-front {
+    background: url("../images/cards.jpg") 100% 50% no-repeat;
+}
+
+.front-background-07 .card-front {
+    background: url("../images/cards.jpg") 0 100% no-repeat;
+}
+
+.front-background-08 .card-front {
+    background: url("../images/cards.jpg") 50% 100% no-repeat;
+}
+
+.front-background-09 .card-front {
+    background: url("../images/cards.jpg") 100% 100% no-repeat;
+}
+
+.card-front, .card-back {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 5px solid #E0E0E0; /* Grey 300 */
+    border-radius: 10px;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.game-board .-flipped {
+    transform: rotateY(180deg);
+}
+
+.game-board .-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Over */
+
+.game-over {
+    display: none;
+}
+
+/* Score */
+
+.button-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
+    background: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><title>icon_close</title><path d="M8.91406,7.5l5.793-5.793A.99989.99989,0,1,0,13.293.293L7.5,6.08594,1.707.293A.99989.99989,0,0,0,.293,1.707L6.08594,7.5.293,13.293A.99989.99989,0,1,0,1.707,14.707L7.5,8.91406l5.793,5.793A.99989.99989,0,0,0,14.707,13.293Z" opacity="0.3"/></svg>') 50% 50% no-repeat;
+    cursor: pointer;
+}
+
+.score-window {
+    visibility: hidden;
+}
+
+.score-window span {
+    display: inline-block;
+    width: 30%;
+}

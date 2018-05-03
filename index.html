@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+    <link href="styles/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<main class="game">
+    <div class="game-menu">
+        <div class="menu-window">
+            <div class="menu-rules">
+                <h3>GAME RULES</h3>
+                <p>If you've ever played memory games, you're sure to know the rules. If you don't, well, here's a quick recap:
+                turn over two cards until they match. Continue until there're no cards left. So, what are you waiting for?</p>
+            </div>
+            <form class="menu-form">
+                <h3>ENTER YOUR NAME</h3>
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="John Doe">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="john.doe@example.com">
+            </form>
+            <div class="menu-back">
+                <h3>CHOOSE CARD BACK</h3>
+                <span class="menu-back-background-01 -selected">&nbsp;</span>
+                <span class="menu-back-background-02">&nbsp;</span>
+                <span class="menu-back-background-03">&nbsp;</span>
+            </div>
+            <div class="menu-difficulty">
+                <h3>CHOOSE DIFFICULTY</h3>
+                <span data-difficulty="6" class="-selected">EASY (6)</span>
+                <span data-difficulty="12">MEDIUM (12)</span>
+                <span data-difficulty="18">HARD (18)</span>
+            </div>
+            <div class="menu-button bold">
+                <span>BEGIN!</span>
+            </div>
+        </div>
+    </div>
+    <div class="game-score bold">TOP SCORE</div>
+    <div class="game-time">
+        <p class="bold">TIME</p>
+        <p>00.00</p>
+    </div>
+    <div class="game-board back-background-01">
+        <div><span class="card-back"></span><span class="card-front"></span></div>
+        <div><span class="card-back"></span><span class="card-front"></span></div>
+        <div><span class="card-back"></span><span class="card-front"></span></div>
+        <div><span class="card-back"></span><span class="card-front"></span></div>
+        <div><span class="card-back"></span><span class="card-front"></span></div>
+        <div><span class="card-back"></span><span class="card-front"></span></div>
+    </div>
+    <div class="game-over">
+        <div class="over-window">
+            <h3>CONGRATULATIONS!</h3>
+            <p></p>
+        </div>
+    </div>
+    <div class="score-window">
+        <div class="button-close"></div>
+        <h3>TOP SCORE</h3>
+        <div></div>
+    </div>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>
